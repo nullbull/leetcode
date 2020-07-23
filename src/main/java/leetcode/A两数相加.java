@@ -3,11 +3,6 @@ package leetcode;
 public class A两数相加 {
 
 
-    public static class ListNode {
-          int val;
-          ListNode next;
-          ListNode(int x) { val = x; }
-     }
 
     static class Solution {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
