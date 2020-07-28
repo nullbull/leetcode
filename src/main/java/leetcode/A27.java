@@ -14,17 +14,27 @@ public class A27 {
         if (nums.length == 1) {
             return 1;
         }
-        int count = 0;
-        for (int i = 0; i < nums.length - 1;) {
+        int count = 1;
+        for (int i = 0; i < nums.length - 1; i++) {
             if (nums[i] != nums[i + 1]) {
                 count ++;
-            } else {
+            }
+        }
+        int time = count;
+        for (int i = 0; i < nums.length - 1;) {
+            if (nums[i] == nums[i + 1]) {
+                if (--time < 0) {
+                    break;
+                }
                 int start = i;
-                while (nums[i] == nums[++i]) { }
+                while (i < nums.length - 1 && nums[i] == nums[++i]) { }
                 int l = i - start - 1;
-                for (int j = start + 1; j < i; j++) {
+                for (int j = start + 1; (j + l) < nums.length; j++) {
                     nums[j] = nums[j + l];
                 }
+                i = start;
+            } else {
+                i ++;
             }
         }
         return count;
