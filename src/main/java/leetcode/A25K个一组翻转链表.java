@@ -6,7 +6,7 @@ package leetcode;
  * @desc
  */
 
-public class A26K个一组翻转链表 {
+public class A25K个一组翻转链表 {
 
     public static ListNode reverseKGroup(ListNode head, int k) {
 

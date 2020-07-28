@@ -1,6 +1,6 @@
 package leetcode;
 
-public class A交换链表 {
+public class A24交换链表 {
     public static ListNode swapPairs(ListNode head) {
 
         if (head == null || head.next == null) {
