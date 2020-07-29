@@ -2,45 +2,33 @@ package leetcode;
 
 /**
  * @author niuzhenhao
- * @date 2020/7/28 19:10
+ * @date 2020/7/29 19:42
  * @desc
  */
 
 public class A27 {
-    public static int removeDuplicates(int[] nums) {
+    public int removeElement(int[] nums, int val) {
         if (nums == null) {
             return 0;
         }
         if (nums.length == 1) {
             return 1;
         }
-        int count = 1;
-        for (int i = 0; i < nums.length - 1; i++) {
-            if (nums[i] != nums[i + 1]) {
-                count ++;
+
+        int j = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            int now = nums[i];
+            if (now == val) {
+                j++;
             }
+
         }
-        int time = count;
-        for (int i = 0; i < nums.length - 1;) {
-            if (nums[i] == nums[i + 1]) {
-                if (--time < 0) {
-                    break;
-                }
-                int start = i;
-                while (i < nums.length - 1 && nums[i] == nums[++i]) { }
-                int l = i - start - 1;
-                for (int j = start + 1; (j + l) < nums.length; j++) {
-                    nums[j] = nums[j + l];
-                }
-                i = start;
-            } else {
-                i ++;
-            }
-        }
-        return count;
+
+        return nums.length - j;
     }
 
     public static void main(String[] args) {
-        removeDuplicates(new int[]{0,0,1,1,1,2,2,3,3,4});
+        System.out.println(new A27().removeElement(new int[]{0,1,2,2,3,0,4,2}, 3));
     }
 }
