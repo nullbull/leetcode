@@ -32,26 +32,15 @@ public class A35搜索插入位置 {
                 right = mid - 1;
             }
         }
-        if (right == 0 || right == -1) {
-            if (nums[0] < target) {
-                return 1;
-            }
-            return 0;
+        if(target > nums[left]) {
+           return left + 1;
         }
-        if (left == nums.length - 1) {
-            if (nums[left] > target) {
-                return left;
-            }
-            return nums.length;
-        }
-
-
 
         return left;
     }
 
     public static void main(String[] args) {
-        System.out.println(new A35搜索插入位置().searchInsert(new int[]{1, 2, 4, 5, 7}, 6));
+        System.out.println(new A35搜索插入位置().searchInsert(new int[]{1, 2}, 0));
     }
 
 }
