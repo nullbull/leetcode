@@ -1,26 +1,30 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
+
+/**
+ * @author niuzhenhao
+ * @date 2020/8/25 18:51
+ * @desc
+ */
 
 public class A47 {
 
-    public List<List<Integer>> permute(int[] nums) {
+    public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer> > res = new ArrayList<>();
 
         if (nums == null) {
             return res;
         }
+        Arrays.sort(nums);
         boolean[] has = new boolean[nums.length];
 
-        HashSet<List<Integer>> set = new HashSet<>();
-        traceBack(nums, nums.length, 0 , has, set, new ArrayList<>());
+        traceBack(nums, nums.length, 0 , has, res, new ArrayList<>());
 
-        return new ArrayList<>(set);
+        return res;
     }
 
-    private void traceBack(int[] nums, int now, int dep, boolean[] has, HashSet<List<Integer>> res, List<Integer> temp) {
+    private void traceBack(int[] nums, int now, int dep, boolean[] has, List<List<Integer>> res, List<Integer> temp) {
         if (dep == nums.length) {
             res.add(new ArrayList<>(temp));
             return;
@@ -29,6 +33,10 @@ public class A47 {
             if (has[i]) {
                 continue;
             }
+            if (i > 0 && (nums[i] == nums[i - 1]) && !has[i - 1] ) {
+                continue;
+            }
+
             has[i] = true;
             temp.add(nums[i]);
             traceBack(nums, now, dep + 1, has, res, temp);
@@ -38,7 +46,6 @@ public class A47 {
     }
 
     public static void main(String[] args) {
-        new A47().permute(new int[]{1, 2, 1});
+        new A47().permuteUnique(new int[]{1, 1, 3});
     }
-
 }
