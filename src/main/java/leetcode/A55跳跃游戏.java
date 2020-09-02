@@ -48,6 +48,8 @@ public class A55跳跃游戏 {
 //        new A55跳跃游戏().canJump(new int[]{2, 3, 1, 1, 4});
 //        new A55跳跃游戏().canJump(new int[]{3, 2, 1, 0, 4});
 //        new A55跳跃游戏().canJump(new int[]{0, 2, 3});
+
+
         new A55跳跃游戏().canJump(new int[]{1, 1, 1, 0});
     }
 }
