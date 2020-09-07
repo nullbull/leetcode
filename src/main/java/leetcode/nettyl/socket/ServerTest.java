@@ -1,4 +1,4 @@
-package leetcode.nettyl;
+package leetcode.nettyl.socket;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
