@@ -2,6 +2,7 @@ package study.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @author niuzhenhao
@@ -14,17 +15,21 @@ public class A78子集 {
 
         List<List<Integer>> res = new ArrayList<>();
 
-
-
-        for (int i = 0; i < nums.length; i++) {
-            ArrayList<Integer> temp = new ArrayList<>();
-            for (int j = i; j < nums.length; j++) {
-                temp.add(nums[j]);
-                res.add(new ArrayList<>(temp));
-            }
+        if (nums == null || nums.length == 0) {
+            return res;
         }
-        res.add(new ArrayList<>());
+        digui(nums, res, new Stack<>(), 0);
         return res;
+    }
+
+    void digui(int[] nums, List<List<Integer>> res, Stack<Integer> path, int now) {
+        res.add(new ArrayList<>(path));
+        for (int i = now; i < nums.length; i++) {
+            path.add(nums[i]);
+//            res.add(new ArrayList<>(path));
+            digui(nums, res, path, i + 1);
+            path.pop();
+        }
     }
 
     public static void main(String[] args) {
