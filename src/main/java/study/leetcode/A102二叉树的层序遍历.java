@@ -22,11 +22,9 @@ public class A102二叉树的层序遍历 {
             return res;
         }
 
-
         queue.add(root);
 
         while (!queue.isEmpty()) {
-
             List<TreeNode> level = new ArrayList<>();
             while (!queue.isEmpty()) {
                 level.add(queue.poll());
