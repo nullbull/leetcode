@@ -1,6 +1,6 @@
 package study.leetcode;
 
-public class A最长子串 {
+public class A剑指offer48最长子串 {
 
     public static int lengthOfLongestSubstring(String s) {
         if (s.length() == 0) {
