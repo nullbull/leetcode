@@ -1,4 +1,4 @@
-package com.bj58.mism.api.meishih5.mudu.controllers;
+package study.leetcode;
 
 /**
  * @author niuzhenhao
@@ -15,6 +15,21 @@ public class A121买卖股票的最佳时机 {
             int now = prices[i];
             for (int j = i + 1; j < len; j++) {
                 max = Math.max(max,  prices[j] - now);
+            }
+        }
+        return max;
+    }
+    public int maxProfit2(int[] prices) {
+
+        int max = 0;
+        int len = prices.length;
+        int low = prices[0];
+        for (int i = 1; i < len; i++) {
+            int now = prices[i];
+            if (now < low) {
+                low = now;
+            } else {
+                max = Math.max(max, now - low);
             }
         }
         return max;
