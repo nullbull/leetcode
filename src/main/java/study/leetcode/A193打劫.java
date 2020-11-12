@@ -1,4 +1,4 @@
-package com.bj58.mism.api.meishih5.mudu.controllers;
+package study.leetcode;
 
 /**
  * @author niuzhenhao
