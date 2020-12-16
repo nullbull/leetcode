@@ -1,4 +1,4 @@
-package com.bj58.mism.api.video.job;
+package study.leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
