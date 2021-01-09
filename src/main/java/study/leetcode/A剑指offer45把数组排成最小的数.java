@@ -8,12 +8,29 @@ import java.util.List;
 /**
  * @author niuzhenhao
  * @date 2021/1/9 9:49
- * @desc
+ * @desc 自己做的差一个ac
  */
 
-public class A45把数组排成最小的数 {
+public class A剑指offer45把数组排成最小的数 {
 
     public String minNumber(int[] nums) {
+        List<String> list = new ArrayList<>();
+        for (int i : nums) {
+            list.add(i+"");
+        }
+        list.sort((a, b) -> {
+            return (a+b).compareTo(b+a);
+        });
+
+        String res = "";
+        for (int i = 0; i < list.size(); i++) {
+            res += list.get(i);
+        }
+        return res;
+    }
+
+
+    public String minNumber1(int[] nums) {
 
         List<String> list = new ArrayList<>();
         int length = 0;
@@ -105,7 +122,7 @@ public class A45把数组排成最小的数 {
 //
 //        System.out.println(new FFF().minNumber(new int[]{121, 12}));
 //        System.out.println(new FFF().minNumber(new int[]{12, 1212}));
-        System.out.println(new A45把数组排成最小的数().minNumber(new int[]{830, 8, 8308}));
+        System.out.println(new A剑指offer45把数组排成最小的数().minNumber(new int[]{830, 8, 8308}));
 
         List<String> list = Arrays.asList("30", "3", "34", "5", "9");
         list.sort(String::compareTo);
