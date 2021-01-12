@@ -18,7 +18,7 @@ public class A236二叉树的公共祖先 {
     int pPos = 0;
     int qLevel = 0;
     int qPos = 0;
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         TreeNode deep = root;
@@ -132,6 +132,18 @@ public class A236二叉树的公共祖先 {
 //    }
 
 
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root == p || root == q) {
+            return root;
+        }
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        if(left != null && right != null) {
+            return root;
+        }
+        return left != null ? left : right;
+    }
     public static void main(String[] args) {
 //        TreeNode treeNode = TreeNodeBulider.treeNode(new Integer[]{3,5,1,6,2,0,8,null,null,7,4});
         TreeNode treeNode = TreeNodeBulider.treeNode(new Integer[]{1,2});
