@@ -1,5 +1,7 @@
 package study.leetcode;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -56,6 +58,25 @@ public class A148排序链表 {
             cur.next = b;
         }
         return head.next;
+    }
+
+    public ListNode sortList2(ListNode head) {
+        ListNode aHead = head;
+
+        List<Integer> list = new ArrayList<>();
+        while (aHead != null) {
+            list.add(aHead.val);
+            aHead = aHead.next;
+        }
+        Collections.sort(list);
+        ListNode anew = new ListNode(-1);
+        aHead = anew;
+        for (Integer i : list) {
+            ListNode listNode = new ListNode(i);
+            aHead.next = listNode;
+            aHead = aHead.next;
+        }
+        return anew.next;
     }
     
 }
