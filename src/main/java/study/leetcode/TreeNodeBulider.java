@@ -31,6 +31,9 @@ public class TreeNodeBulider {
             List<TreeNode> temp = new ArrayList<>();
             for (int i = sum; i < cur + sum && i < nums.length && !queue.isEmpty(); i += 2) {
                 TreeNode father = queue.poll();
+                if (father == null) {
+                    continue;
+                }
                 if (i < list.size()) {
                     father.left = list.get(i);
                     temp.add(list.get(i));
