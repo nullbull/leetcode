@@ -11,11 +11,11 @@ public class A3最长不重复字串 {
         int[] map = new int[128];
 
         char[] cs = s.toCharArray();
-        int max = 1;
+        int max = 0;
         int start = 0;
         for (int i = 0; i < s.length(); i++)  {
             start = Math.max(map[cs[i]], start);
-            max = Math.max(i - start  , max);
+            max = Math.max(i - start + 1, max);
             map[cs[i]] = i;
         }
         return max;
